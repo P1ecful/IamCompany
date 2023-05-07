@@ -1,16 +1,19 @@
 from django.contrib import admin
+from django.utils.html import mark_safe
 from .models import *
 
-
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-     prepopulated_fields = {"slug": ("title",)}
-     list_display = ('title', 'category')
-     list_filter = ('category')
+     list_display = ('category', 'title', 'size')
+     list_filter = ('category', 'size')
+     fieldsets = (
+        ('Представление продукта', {'fields': ('title','product_photo', 'cost', 'category', 'slug')}),
+        ('Характеристики', {'fields': ('size', 'weight')}),
+     )
 
+
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
      prepopulated_fields = {"slug": ("name", )}
-
-admin.site.register(Product)
-admin.site.register(Category)
 
 
