@@ -1,0 +1,4 @@
+__pycache__
+iamcompany_shop/migrations
+static/images/ 
+db.sqlite3

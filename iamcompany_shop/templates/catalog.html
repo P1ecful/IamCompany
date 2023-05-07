@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>Товары | I am Company</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Главная</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Каталог <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                {% for items in categories %}
+                    <a href = "/catalog/{{ items.slug }}/">{{ items.name }}</a>
+                {% endfor %}
+            </div>
+        </div> 
+
+        <div class="dropdown">
+            <button class="dropbtn"> О нас <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href = '/FAQ/'>FAQ</a>
+                <a href = '/o-razrabotchike/'>О разработчике</a>
+            </div>
+        </div>
+    </div>
+
+
+    <h1>Каталог</h1>
+    {% for item in category %}
+        <div class="product-item">
+            <a href = "{{ item.slug }}/"><img src="{{ item.product_photo.url }}"></a>
+            <div class="product-list">
+                <h3><a href = "{{ item.slug }}/">{{ item.title }}</a></h3>
+                <span class="price"><a>₽ {{ item.cost }}</a></span>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
+
