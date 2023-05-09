@@ -2,6 +2,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
   }
   
+  #korzina {
+    float: right;
+  }
+  
   .navbar {
     overflow: hidden;
     background-color: #333;

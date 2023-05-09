@@ -3,11 +3,13 @@ from django.views.generic import ListView
 from .models import Category, Product
 from .utils import *
 
+from django.http import HttpResponse
+
 class MainPage(DataMixin, ListView): template_name = 'index.html'
 class FaqPage(DataMixin, ListView): template_name = 'Faq.html'
 class DeveloperPage(DataMixin, ListView): template_name = 'about_developer.html'
+class BasketPage(DataMixin, ListView): template_name = 'basket.html'
   
 def shop_products(request, category_slug):
     return render(request, 'catalog.html', {"category": Product.objects.filter(category__slug = category_slug),
                                             "categories": Category.objects.all()})
-

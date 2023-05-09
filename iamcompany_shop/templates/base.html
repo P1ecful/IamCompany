@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>{% block title %}{% endblock %} | I am Company</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Главная</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Каталог <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                {% for items in categories %}
+                    <a href = "/catalog/{{ items.slug }}/">{{ items.name }}</a>
+                {% endfor %}
+            </div>
+        </div> 
+
+        <a href = "/korzina/"> Корзина</a>
+
+        <div class="dropdown">
+            <button class="dropbtn"> О нас <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href = '/FAQ/'>FAQ</a>
+                <a href = '/o-razrabotchike/'>О разработчике</a>
+            </div>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
