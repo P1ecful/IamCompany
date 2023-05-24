@@ -2,10 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  #korzina {
-    float: right;
-  }
-  
+/* Меню */
   .navbar {
     overflow: hidden;
     background-color: #333;
@@ -66,6 +63,7 @@ body {
     display: block;
   }
 
+
   .product-item {
     display:inline-block;
     height: 250px;
@@ -117,3 +115,4 @@ body {
   .product-item:hover .button {
      background: #100d15;
   }
+  
