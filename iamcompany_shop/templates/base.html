@@ -13,7 +13,7 @@
     <div class="navbar">
         <a href="/">Главная</a>
         <div class="dropdown">
-            <button class="dropbtn"> Каталог <i class="fa fa-caret-down"></i></button>
+            <button class="dropbtn"> Каталог </button>
             <div class="dropdown-content">
                 {% for items in categories %}
                     <a href = "/catalog/{{ items.slug }}/">{{ items.name }}</a>
@@ -22,12 +22,14 @@
         </div> 
 
         <div class="dropdown">
-            <button class="dropbtn"> О нас <i class="fa fa-caret-down"></i></button>
+            <button class="dropbtn"> О нас </button>
             <div class="dropdown-content">
                 <a href = '/FAQ/'>FAQ</a>
                 <a href = '/o-razrabotchike/'>О разработчике</a>
             </div>
         </div>
+
+        <a class = 'register' href="/register/">Регистрация</a>
     </div>
 
     {% block content %}

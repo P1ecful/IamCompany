@@ -4,6 +4,8 @@ from .models import *
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+     "Продукты в админке"
+     prepopulated_fields = {"slug": ("title", )}
      list_display = ('category', 'title', 'size')
      list_filter = ('category', 'size')
      fieldsets = (
@@ -14,6 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+     "Категории в админке" 
      prepopulated_fields = {"slug": ("name", )}
 
 

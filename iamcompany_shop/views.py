@@ -1,5 +1,7 @@
+from typing import Any, Dict
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.core.paginator import Paginator
 from .models import Category, Product
 from .utils import *
 
@@ -12,10 +14,13 @@ from .serializers import ProductSerializer
 class MainPage(DataMixin, ListView): template_name = 'index.html'
 class FaqPage(DataMixin, ListView): template_name = 'Faq.html'
 class DeveloperPage(DataMixin, ListView): template_name = 'about_developer.html'
-  
-def shop_products(request, category_slug):
-    return render(request, 'catalog.html', {"category": Product.objects.filter(category__slug = category_slug),
-                                            "categories": Category.objects.all()})
+class CategoryPage(DataMixin, CategoryMixin, ListView): template_name = 'catalog.html'
+
+def ProductPage(requests, product_slug, category_slug):
+    #FIXME
+    category = Product.objects.filter(category__slug = category_slug)
+    detail = Product.objects.get(slug = product_slug)
+    return render(requests, 'product_card.html', context = {'title': detail.title})
 
 # Api 
 class CatalogAPIView(APIView):

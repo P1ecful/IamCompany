@@ -25,7 +25,7 @@ class Product(models.Model):
     slug = models.SlugField(null = False, unique = True, verbose_name = "URL") 
     
     # характеристики продукта
-    size = models.IntegerField(null = False, verbose_name = "Длинна мм")
+    size = models.IntegerField(null = False, verbose_name = "Длина мм")
     weight = models.CharField(max_length = 10, null = False, verbose_name = "Вес гр") 
 
     def __str__(self):
