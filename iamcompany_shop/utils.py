@@ -1,9 +1,14 @@
 from .models import *
 from typing import Any, Dict
 
+
 class DataMixin:
     model = Category
     extra_context = {"categories": Category.objects.all()}
+
+    def get_user_context(self, **kwargs):
+        context = kwargs
+        return context
 
 class CategoryMixin:
     def get_context_data(self, *, object_list=None, **kwargs) -> Dict[str, Any]:
