@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
- 
+{% load static %}
+
+{% block heading %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %}
+
 {% block content %}
-<h1>{{title}}</h1>
+<div class="container">
+    <h1>{{title}}</h1>
+    <p>Заполните эту форму, чтобы зарегестрировать аккаунт</p>
+    <form method="post">
+        {% csrf_token %}
 
-<form method="post">
-    {% csrf_token %}
+        {% for f in form %}
+            <hr>
+                <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+                <div class="form-error">{{ f.errors }}</div>
+            </hr>
+        {% endfor %}
+        <button type="submit" class="registerbtn">Регистрация</button>
+    </form>
+</div>
 
-    {% for f in form %}
-        <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
-    {% endfor %}
-
-    <button type="submit">Регистрация</button>
-</form>
+<div class="container signin">
+    <p>Уже есть аккаунт?<a href="/login/">Войти</a>.</p>
+</div>
 
 {% endblock %}
