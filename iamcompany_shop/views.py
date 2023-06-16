@@ -58,7 +58,6 @@ def logout_user(request):
 
 
 def ProductPage(requests, product_slug, category_slug):
-    #FIXME
     category = Product.objects.filter(category__slug = category_slug)
     detail = Product.objects.get(slug = product_slug)
     return render(requests, 'product_card.html', context = {'title': detail.title})

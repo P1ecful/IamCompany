@@ -21,7 +21,7 @@ class Product(models.Model):
     title = models.CharField(max_length = 50, verbose_name = "Название")
     product_photo = models.ImageField(upload_to = 'static/images', verbose_name = "Фото") 
     cost = models.IntegerField(null = False, verbose_name = "Цена")
-    category = models.ForeignKey(Category, null = True, on_delete = models.CASCADE, verbose_name = "Категория")
+    category = models.ForeignKey(Category, null = True, on_delete = models.CASCADE, verbose_name = "Категория", related_name = 'categories')
     slug = models.SlugField(null = False, unique = True, verbose_name = "URL") 
     
     # характеристики продукта
