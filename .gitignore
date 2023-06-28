@@ -2,3 +2,4 @@ __pycache__
 iamcompany_shop/migrations
 static/images/ 
 db.sqlite3
+__init__
