@@ -20,3 +20,7 @@ class CategoryAdmin(admin.ModelAdmin):
      prepopulated_fields = {"slug": ("name", )}
 
 
+@admin.register(Banner)
+class BannerAdmin(admin.ModelAdmin):
+     "Баннеры в админке"
+     list_display = ('title', 'photo')

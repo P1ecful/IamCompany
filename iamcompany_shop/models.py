@@ -18,7 +18,7 @@ class Category(models.Model):
 # Класс продукта
 class Product(models.Model):
     title = models.CharField(max_length = 50, verbose_name = "Название")
-    product_photo = models.ImageField(upload_to = 'static/images', verbose_name = "Фото") 
+    product_photo = models.ImageField(upload_to = 'static/images/catalog_src', verbose_name = "Фото") 
     cost = models.IntegerField(null = False, verbose_name = "Цена")
     category = models.ForeignKey(Category, null = True, on_delete = models.CASCADE, verbose_name = "Категория", related_name = 'categories')
     slug = models.SlugField(null = False, unique = True, verbose_name = "URL") 
@@ -32,3 +32,14 @@ class Product(models.Model):
         db_table = "ProductModel"
         verbose_name = "Продукты"
         verbose_name_plural = "Продукт"
+
+# Класс баннеров для главное страницы
+class Banner(models.Model):
+    title = models.CharField(max_length = 55, verbose_name = "Название")
+    photo = models.ImageField(upload_to = 'static/images/banner_src', verbose_name = "Фото")
+    isPublished = models.BooleanField(null = False, default = False, verbose_name = "Опубуликован")
+
+    class Meta:
+        db_table = "BannerModel"
+        verbose_name = "Баннеры"
+        verbose_name_plural = "Баннер"

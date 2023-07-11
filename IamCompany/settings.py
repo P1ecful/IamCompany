@@ -80,7 +80,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     "static/css",
-    "static/images",
+    "static/images/catalog_src",
+    "static/images/banner_src"
 ]
 
 STATIC_ROOT = '/static/'

@@ -1,6 +1,18 @@
 {% extends "base.html "%}
+{% load static %}
 
 {% block title %}Главная {% endblock title%}
 
 {% block content %}
+
+    <div class = "banner">
+        {% for banner in banners %}
+            {% if banner.isPublished %}
+                <img src="{{ banner.photo }}">
+            {% endif %}
+        {% endfor %}
+    </div>
+
 {% endblock content %}
+
+

@@ -1,6 +1,7 @@
 __pycache__
 iamcompany_shop/migrations
-static/images/ 
+static/images/catalog_src
+static/images/banner_src
 db.sqlite3
 __init__
 cache
