@@ -1,8 +1,9 @@
 {% extends "base.html "%}
+{% load static %}
+
 {% block title %}Карточка товара{% endblock title%}
+{%block heading %}<link rel="stylesheet" href="{% static 'css/product.css' %}" />{% endblock %}
+
 {% block content %}
-
-<h1>Cтраница товара: {{ title }}</h1>
-
-<a href="#" onclick="history.back();">Назад</a>
+<h2>Страница товара {{ title }}</h2>
 {% endblock content %}

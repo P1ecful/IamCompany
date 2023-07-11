@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <title>{% block title %}{% endblock %} | I am Company</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {%block heading %}{% endblock %}
+
+
+    <title>{% block title %}{% endblock %} | I am Company</title>
 </head>
 <body>
+    <!----------- Menu ------------>
     <div class="navbar">
         <a href="/">Главная</a>
-        <div class="dropdown">
+        <div class="dropdown">`
             <button class="dropbtn"> Каталог </button>
             <div class="dropdown-content">
                 {% for items in categories %}
@@ -29,16 +32,27 @@
                 <a href = '/o-razrabotchike/'>О разработчике</a>
             </div>
         </div>
-
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'logout' %}">{{user.username}} | Выйти</a>
-        {% else %}
-            <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a>
-        {% endif %}
     </div>
+
 
     {% block content %}
     {% endblock content %}
-    
+
+    <div class ="footer">
+
+        <div>
+            <h4>IamCompany</h4>
+            <p>Производство и продажа <br> рыболовных товаров</p>
+            <p>Copyright © 2023 Компания I AM</p>
+        </div>
+
+        <div>
+            <h4>Каталог</h4>
+            {% for items in categories %}
+                <a href = "/catalog/{{ items.slug }}/">{{ items.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
 </body>
 </html>

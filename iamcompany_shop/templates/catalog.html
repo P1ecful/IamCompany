@@ -1,5 +1,9 @@
 {% extends "base.html "%}
+{% load static %}
+
 {% block title %}Каталог {% endblock title%}
+{%block heading %}<link rel="stylesheet" href="{% static 'css/catalog.css' %}" />{% endblock %}
+
 {% block content %}
     <h1>Каталог</h1>
     {% for item in category %}
